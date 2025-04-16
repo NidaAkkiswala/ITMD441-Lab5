@@ -5,7 +5,7 @@ body {
 
 .container {
     background: #7FDBFF;
-    padding: 50px;
+    padding: 40px;
     max-width: 400px;
     margin: auto;
     border-radius: 5px;
@@ -15,7 +15,7 @@ body {
 h1 {
     text-align: center;
     color: #001f3f;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 label {
@@ -28,4 +28,16 @@ input, select {
     padding: 10px;
     margin-top: 10px;
     box-sizing: border-box;
+}
+
+input[disabled] {
+    background-color: #01FF70;
+    color: #555;
+    font-style: oblique;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
 }
