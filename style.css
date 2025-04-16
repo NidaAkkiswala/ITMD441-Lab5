@@ -31,7 +31,6 @@ input, select {
 }
 
 input[disabled] {
-    background-color: #01FF70;
     color: #555;
     font-style: oblique;
 }
