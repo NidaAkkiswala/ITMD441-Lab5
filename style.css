@@ -35,6 +35,11 @@ input[disabled] {
     font-style: oblique;
 }
 
+#slidervalue {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
 .error {
     color: red;
     margin-top: 10px;
