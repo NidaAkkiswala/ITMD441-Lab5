@@ -3,3 +3,16 @@ body {
     background: #7FDBFF;
     padding: 20px;
 }
+
+.container {
+    background: #7FDBFF;
+    padding: 30px;
+    max-width: 300px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #001f3f;
+    margin-bottom: 30px;
+}
