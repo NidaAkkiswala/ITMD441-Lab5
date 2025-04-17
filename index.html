@@ -15,10 +15,10 @@
                 <p>$1 USD = ₹85 INR for Rupees</p>
 
                 <label for="billtotal">Bill Total: $</label>
-                <input type="text" id="billtotal" name="billtotal">
+                <input type="text" id="billtotal">
 
-                <label for="totalwithtax">Total Bill with Tax (11%):</label>
-                <input type="text" id="totalwithtax" disabled>
+                <label for="withtax">Total Bill with Tax (11%):</label>
+                <input type="text" id="withtax" disabled>
 
                 <label for="currency">Select Currency:</label>
                 <select id="currency">
@@ -27,14 +27,12 @@
                     <option value="euro">Euro</option>
                 </select>
 
-                <label for="Rangetip">Tip:</label>
-                <div class="slider-row">
-                    <input type="range" id="Rangetip" name="Rangetip" min="0" max="100">
-                    <output id="value"></output>
-                </div>
+                <label for="tip">Tip:</label>
+                <input type="range" id="tip" min="0" max="100" value="0">
+                <output id="value">0</output>
 
-                <label for="amounttip">Converted Tip Amount:</label>
-                <input type="text" id="amounttip" disabled>
+                <label for="convertedtip">Converted Tip Amount:</label>
+                <input type="text" id="convertedtip" disabled>
 
                 <label for="convertedtotal">Converted Total Bill with Tip and Tax:</label>
                 <input type="text" id="convertedtotal" disabled>
