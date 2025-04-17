@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const convertedTipField = document.getElementById('convertedtip');
     const convertedTotalField = document.getElementById('convertedtotal');
     const currencySelect = document.getElementById('currency');
+    const errorMessage = document.getElementById('errormessage');
   
     tipValueOutput.textContent = tipSlider.value;
     tipSlider.addEventListener("input", (event) => {
@@ -26,8 +27,12 @@ window.addEventListener('DOMContentLoaded', function () {
         billWithTaxField.value = '';
         convertedTipField.value = '';
         convertedTotalField.value = '';
+
+        errorMessage.textContent = "Please Enter a Valid Number";
         return;
       }
+
+      errorMessage.textContent = '';
   
       const tax = billAmount * 0.11;
       const billWithTax = billAmount + tax;
