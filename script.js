@@ -8,14 +8,12 @@ window.addEventListener('DOMContentLoaded', function () {
     const convertedTotalField = document.getElementById('convertedtotal');
     const currencySelect = document.getElementById('currency');
   
-    // Add this for updating the slider value tag in real-time
     tipValueOutput.textContent = tipSlider.value;
     tipSlider.addEventListener("input", (event) => {
       tipValueOutput.textContent = event.target.value;
-      calculateTip(); // trigger update
+      calculateTip(); 
     });
   
-    // Also update on bill input and currency change
     form.addEventListener('input', calculateTip);
     currencySelect.addEventListener('change', calculateTip);
   
