@@ -11,7 +11,7 @@ function calculatetip() {
     const tipamount = document.getElementById('amounttip');
     const totaltax = document.getElementById('totalwithtax');
     const errmsg = document.getElementById('errormessage');
-    const conerttotal = document.getElementById('totalwithtip');
+    const converttotal = document.getElementById('totalwithtip');
 
     let bill = parseFloat(billamount.value);
     let tip = parseInt(tiprange.value);
@@ -29,7 +29,7 @@ function calculatetip() {
 
     let tipamt = (bill * tip / 100);
     let taxttl = bill * 1.11;
-    let ttltp = bill + tipamt;
+    let totaltip = bill + tipamt;
 
     tipamount.value = tipamt.toFixed(2);
     totaltax.value = taxttl.toFixed(2);
