@@ -39,10 +39,10 @@ window.addEventListener('DOMContentLoaded', function () {
       let conversionRate = 1;
       let currencySymbol = '$';
   
-      if (selectedCurrency === 'eur') {
+      if (selectedCurrency === 'euro') {
         conversionRate = 0.95;
         currencySymbol = '€';
-      } else if (selectedCurrency === 'inr') {
+      } else if (selectedCurrency === 'rupee') {
         conversionRate = 85;
         currencySymbol = '₹';
       }
