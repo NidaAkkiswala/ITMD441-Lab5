@@ -1,12 +1,12 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const billInput = document.getElementById('billTotal');
-    const tipRange = document.getElementById('tipRange');
-    const tipAmountField = document.getElementById('tipAmount');
-    const totalWithTaxField = document.getElementById('totalWithTax');
-    const errorMsg = document.getElementById('errorMsg');
-    const convertedTotal = document.getElementById('convertedTotal');
+    const billInput = document.getElementById('billtotal');
+    const tipRange = document.getElementById('Rangetip');
+    const tipAmountField = document.getElementById('amounttip');
+    const totalWithTaxField = document.getElementById('totalwithtax');
+    const errorMsg = document.getElementById('errormessage');
+    const convertedTotal = document.getElementById('convertedtotal');
     const currencySelect = document.getElementById('currency');
-    const sliderValue = document.getElementById('sliderValue');
+    const sliderValue = document.getElementById('slidervalue');
 
     function calculateTip() {
       const bill = parseFloat(billInput.value);
