@@ -32,9 +32,8 @@ input, select {
 }
 
 input[disabled] {
-    background-color: black;
-    color: #FFDC00;
-    font-style: oblique;
+    background-color: whitesmoke;
+    color: #B10DC9;
 }
 
 #slidervalue {
