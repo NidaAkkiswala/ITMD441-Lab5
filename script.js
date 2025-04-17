@@ -41,17 +41,15 @@ window.addEventListener('DOMContentLoaded', function () {
   
       if (selectedCurrency === 'euro') {
         conversionRate = 0.95;
-        currencySymbol = '€';
       } else if (selectedCurrency === 'rupee') {
         conversionRate = 85;
-        currencySymbol = '₹';
       }
   
       const convertedTip = tipAmount * conversionRate;
       const convertedTotal = totalWithTipAndTax * conversionRate;
   
-      convertedTipField.value = `${currencySymbol}${convertedTip.toFixed(2)}`;
-      convertedTotalField.value = `${currencySymbol}${convertedTotal.toFixed(2)}`;
+      convertedTipField.value = `${convertedTip.toFixed(2)}`;
+      convertedTotalField.value = `${convertedTotal.toFixed(2)}`;
     }
   });
   
