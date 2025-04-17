@@ -1,54 +1,54 @@
 document.getElementById('tipform').addEventListener('input', calculatetip);
-document.getElementById('currency').addEventListener('change', convertcurrency);
+document.getElementById('currency').addEventListener('change', calculatetip);
 
 document.getElementById('Rangetip').addEventListener('input', function () {
-    document.getElementById('slidervalue').textContent = this.ariaValueMax;
+    document.getElementById('slidervalue').textContent = this.value;
 });
 
 function calculatetip() {
     const billamount = document.getElementById('total');
     const tiprange = document.getElementById('Rangetip');
-    const tipamount = document.getElementById('amounttip');
-    const totaltax = document.getElementById('totalwithtax');
+    const tipamountField = document.getElementById('amounttip');
+    const totaltaxField = document.getElementById('totalwithtax');
     const errmsg = document.getElementById('errormessage');
     const converttotal = document.getElementById('totalwithtiptax');
 
     let bill = parseFloat(billamount.value);
     let tip = parseInt(tiprange.value);
 
+    errmsg.textContent = '';
+    converttotal.value = '';
+
     if (isNaN(bill) || bill < 0) {
         errmsg.textContent = 'Please Enter A Valid Number';
-        tipamount.value = totaltax.value = '';
+        tipamountField.value = totaltaxField.value = '';
         return;
     }
 
     if (bill === 0) {
-        tipamount.value = totaltax.value = '';
+        tipamountField.value = totaltaxField.value = '';
         return;
     }
 
-    let tipamt = (bill * tip / 100);
-    let taxttl = bill * 1.11;
-    let totaltip = bill + tipamt;
+    let tipamt = (bill * tip) / 100;
+    let taxamt = bill * 1.11;
+    let totaltip = bill + tipamt + taxamt;
 
-    tipamount.value = tipamt.toFixed(2);
-    totaltax.value = taxttl.toFixed(2);
+    tipamountField.value = tipamt.toFixed(2);
+    totaltaxField.value = (bill + taxamt).toFixed(2);
 
-    convertcurrency();
+    convertcurrency(total);
 }
 
-function convertcurrency() {
+function convertcurrency(total) {
     const currency = document.getElementById('currency').value;
-    const totalwithtax = parseFloat(document.getElementById('totalwithtax').value);
-    const tipamount = parseFloat(document.getElementById('tipamount').value);
     const convertedttl = document.getElementById('totalwithtiptax');
 
-    if (!totalwithtax || !tipamount) {
+    if (!total) {
         convertedttl.value = '';
         return;
     }
 
-    let total = totalwithtax + tipamount;
     let converted;
 
     switch (currency) {
