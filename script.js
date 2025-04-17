@@ -39,10 +39,13 @@ window.addEventListener('DOMContentLoaded', function () {
       let conversionRate = 1;
       let currencySymbol = '$';
   
-      if (selectedCurrency === 'euro') {
+      if (selectedCurrency === 'eur') {
         conversionRate = 0.95;
-      } else if (selectedCurrency === 'rupee') {
+      } else if (selectedCurrency === 'inr') {
         conversionRate = 85;
+      }
+      else {
+        conversionRate = 1;
       }
   
       const convertedTip = tipAmount * conversionRate;
