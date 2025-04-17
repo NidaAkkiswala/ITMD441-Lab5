@@ -1,16 +1,22 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const billInput = document.getElementById('billtotal');
-    const tipRange = document.getElementById('Rangetip');
-    const tipAmountField = document.getElementById('amounttip');
-    const totalWithTaxField = document.getElementById('totalwithtax');
-    const errorMsg = document.getElementById('errormessage');
-    const convertedTotal = document.getElementById('convertedtotal');
-    const currencySelect = document.getElementById('currency');
-    const sliderValue = document.getElementById('slidervalue');
+    const billInput = document.getElementById('#billtotal');
+    const tipRange = document.getElementById('#Rangetip');
+    const tipAmountField = document.getElementById('#amounttip');
+    const totalWithTaxField = document.getElementById('#totalwithtax');
+    const errorMsg = document.getElementById('#errormessage');
+    const convertedTotal = document.getElementById('#convertedtotal');
+    const currencySelect = document.getElementById('#currency');
+    const value = document.querySelector("#value");
+    const input = document.querySelector("#slidervalue");
 
     function calculateTip() {
       const bill = parseFloat(billInput.value);
       const tipPercent = parseInt(tipRange.value);
+
+      value.textContent = input.value;
+      input.addEventListener("input", (event) => {
+        value.textContent = event.target.value;
+      });
 
       errorMsg.textContent = '';
       sliderValue.textContent = `${tipPercent}%`;
