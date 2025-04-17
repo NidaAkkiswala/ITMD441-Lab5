@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('tipForm');
+    const form = document.getElementById('tipform');
     const billInput = document.getElementById('billtotal');
     const tipSlider = document.getElementById('tip');
     const tipValueOutput = document.getElementById('value');
