@@ -11,7 +11,7 @@ function calculatetip() {
     const tipamount = document.getElementById('amounttip');
     const totaltax = document.getElementById('totalwithtax');
     const errmsg = document.getElementById('errormessage');
-    const converttotal = document.getElementById('totalwithtip');
+    const converttotal = document.getElementById('totalwithtiptax');
 
     let bill = parseFloat(billamount.value);
     let tip = parseInt(tiprange.value);
@@ -35,4 +35,32 @@ function calculatetip() {
     totaltax.value = taxttl.toFixed(2);
 
     convertcurrency();
+}
+
+function convertcurrency() {
+    const currency = document.getElementById('currency').value;
+    const totalwithtax = parseFloat(document.getElementById('totalwithtax').value);
+    const tipamount = parseFloat(document.getElementById('tipamount').value);
+    const convertedttl = document.getElementById('totalwithtiptax');
+
+    if (!totalwithtax || !tipamount) {
+        convertedttl.value = '';
+        return;
+    }
+
+    let total = totalwithtax + tipamount;
+    let converted;
+
+    switch (currency) {
+        case 'inr':
+            converted = total * 85;
+            convertedttl.value = `${converted.toFixed(2)} INR`;
+            break;
+        case 'eur':
+            converted = total * 0.95;
+            convertedttl.value = `${converted.toFixed(2)} EUR`;
+            break;
+        default:
+            convertedttl.value = `${total.toFixed(2)} USD`;
+    }
 }
