@@ -1,7 +1,7 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 20px;
-    color: #39CCCC;
+    color: #3D9970;
 }
 
 .container {
@@ -15,7 +15,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #39CCCC;
+    color:#3D9970;
     margin-bottom: 30px;
 }
 
@@ -32,7 +32,8 @@ input, select {
 }
 
 input[disabled] {
-    color: #555;
+    background-color: black;
+    color: #FFDC00;
     font-style: oblique;
 }
 

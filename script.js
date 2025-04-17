@@ -1,21 +1,28 @@
 window.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('tipForm');
-    const billInput = document.getElementById('billTotal');
+    const billInput = document.getElementById('billtotal');
     const tipSlider = document.getElementById('tip');
-    const tipValueOutput = document.getElementById('tipValue');
-    const billWithTaxField = document.getElementById('billWithTax');
-    const convertedTipField = document.getElementById('convertedTip');
-    const convertedTotalField = document.getElementById('convertedTotal');
+    const tipValueOutput = document.getElementById('value');
+    const billWithTaxField = document.getElementById('withtax');
+    const convertedTipField = document.getElementById('convertedtip');
+    const convertedTotalField = document.getElementById('convertedtotal');
     const currencySelect = document.getElementById('currency');
   
+    // Add this for updating the slider value tag in real-time
+    tipValueOutput.textContent = tipSlider.value;
+    tipSlider.addEventListener("input", (event) => {
+      tipValueOutput.textContent = event.target.value;
+      calculateTip(); // trigger update
+    });
+  
+    // Also update on bill input and currency change
     form.addEventListener('input', calculateTip);
+    currencySelect.addEventListener('change', calculateTip);
   
     function calculateTip() {
       const billAmount = parseFloat(billInput.value);
       const tipPercent = parseInt(tipSlider.value);
       const selectedCurrency = currencySelect.value;
-  
-      tipValueOutput.textContent = tipPercent;
   
       if (isNaN(billAmount) || billAmount < 0) {
         billWithTaxField.value = '';
@@ -24,17 +31,13 @@ window.addEventListener('DOMContentLoaded', function () {
         return;
       }
   
-      // Tax is 11%
       const tax = billAmount * 0.11;
       const billWithTax = billAmount + tax;
-  
-      // Tip Calculation
       const tipAmount = (billAmount * tipPercent) / 100;
       const totalWithTipAndTax = billWithTax + tipAmount;
   
       billWithTaxField.value = billWithTax.toFixed(2);
   
-      // Currency conversion
       let conversionRate = 1;
       let currencySymbol = '$';
   
