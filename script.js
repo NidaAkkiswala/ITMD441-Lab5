@@ -1,66 +1,64 @@
-document.getElementById('tipform').addEventListener('input', calculatetip);
-document.getElementById('currency').addEventListener('change', calculatetip);
+const billInput = document.getElementById('billtotal');
+const tipRange = document.getElementById('Rangetip');
+const tipAmountField = document.getElementById('amounttip');
+const totalWithTaxField = document.getElementById('totalwithtax');
+const errorMsg = document.getElementById('errormessage');
+const convertedTotal = document.getElementById('convertedtotal');
+const currencySelect = document.getElementById('currency');
+const sliderValue = document.getElementById('slidervalue');
 
-document.getElementById('Rangetip').addEventListener('input', function () {
-    document.getElementById('slidervalue').textContent = this.value;
-});
+function calculateTip() {
+    const bill = parseFloat(billInput.value);
+    const tipPercent = parseInt(tipRange.value);
 
-function calculatetip() {
-    const billamount = document.getElementById('total');
-    const tiprange = document.getElementById('Rangetip');
-    const tipamountField = document.getElementById('amounttip');
-    const totaltaxField = document.getElementById('totalwithtax');
-    const errmsg = document.getElementById('errormessage');
-    const converttotal = document.getElementById('totalwithtiptax');
-
-    let bill = parseFloat(billamount.value);
-    let tip = parseInt(tiprange.value);
-
-    errmsg.textContent = '';
-    converttotal.value = '';
+    errorMsg.textContent = '';
+    convertedTotal.value = '';
+    sliderValue.textContent = `${tipPercent}%`;
 
     if (isNaN(bill) || bill < 0) {
-        errmsg.textContent = 'Please Enter A Valid Number';
-        tipamountField.value = totaltaxField.value = '';
-        return;
+    errorMsg.textContent = 'Please enter a valid non-negative number.';
+    tipAmountField.value = totalWithTaxField.value = '';
+    return;
     }
 
     if (bill === 0) {
-        tipamountField.value = totaltaxField.value = '';
-        return;
+    tipAmountField.value = totalWithTaxField.value = '';
+    return;
     }
 
-    let tipamt = (bill * tip) / 100;
-    let taxamt = bill * 1.11;
-    let totaltip = bill + tipamt + taxamt;
+    const tipAmount = bill * tipPercent / 100;
+    const taxAmount = bill * 0.11;
+    const total = bill + tipAmount + taxAmount;
 
-    tipamountField.value = tipamt.toFixed(2);
-    totaltaxField.value = (bill + taxamt).toFixed(2);
+    tipAmountField.value = tipAmount.toFixed(2);
+    totalWithTaxField.value = (bill + taxAmount).toFixed(2);
 
-    convertcurrency(total);
+    convertCurrency(total);
 }
 
-function convertcurrency(total) {
-    const currency = document.getElementById('currency').value;
-    const convertedttl = document.getElementById('totalwithtiptax');
+function convertCurrency(total) {
+    const currency = currencySelect.value;
 
     if (!total) {
-        convertedttl.value = '';
-        return;
+    convertedTotal.value = '';
+    return;
     }
 
     let converted;
-
     switch (currency) {
-        case 'inr':
-            converted = total * 85;
-            convertedttl.value = `${converted.toFixed(2)} INR`;
-            break;
-        case 'eur':
-            converted = total * 0.95;
-            convertedttl.value = `${converted.toFixed(2)} EUR`;
-            break;
-        default:
-            convertedttl.value = `${total.toFixed(2)} USD`;
+    case 'inr':
+        converted = total * 85;
+        convertedTotal.value = `${converted.toFixed(2)} INR`;
+        break;
+    case 'eur':
+        converted = total * 0.95;
+        convertedTotal.value = `${converted.toFixed(2)} EUR`;
+        break;
+    default:
+        convertedTotal.value = `${total.toFixed(2)} USD`;
     }
 }
+
+billInput.addEventListener('input', calculateTip);
+tipRange.addEventListener('input', calculateTip);
+currencySelect.addEventListener('change', calculateTip);
