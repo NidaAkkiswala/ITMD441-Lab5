@@ -36,20 +36,10 @@ input[disabled] {
     color: #B10DC9;
 }
 
-#tip {
-    background-color: #FFDC00;
+input[type="range"] {
+    background: linear-gradient(to right, #5500cc 0%, #b60707 100%);
     width: 40px;
-    text-align: center;
-    font-weight: bold;
-    padding: 8px;
-    border-radius: 4px;
-}
-
-.slider-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 5px;
+    border-radius: 5px;
 }
 
 .error {
